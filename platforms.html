@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Platforms — ASTRA SOFTWARE</title>
+  <meta name="description" content="Explore the cloud and infrastructure platforms ASTRA SOFTWARE builds on: AWS, Firebase, Google Cloud, and Docker." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div id="loading-overlay">
+  <div class="loading-logo">
+    <div class="logo-spin"></div>
+    <span>ASTRA SOFTWARE</span>
+  </div>
+</div>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+        ASTRA SOFTWARE
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="platforms.html" class="active">Platforms</a>
+        <a href="technology.html">Technology</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact Us</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── Page Hero ──────────────────────────────────── -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Platforms</span>
+      </div>
+      <span class="section-label"><i class="fas fa-cloud"></i> Our Infrastructure</span>
+      <h1>Platforms We <span style="background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Build On</span></h1>
+      <p>We leverage the world's leading cloud and containerisation platforms to deliver
+         scalable, reliable, and secure solutions that grow with your business.</p>
+    </div>
+  </div>
+
+  <!-- ── Platform Cards ─────────────────────────────── -->
+  <section>
+    <div class="container">
+      <div class="platforms-grid">
+
+        <!-- AWS -->
+        <div class="platform-card aws" data-aos="fade-up">
+          <div class="platform-logo"><i class="fab fa-aws"></i></div>
+          <h3>Amazon Web Services</h3>
+          <p>The world's most comprehensive cloud platform. We harness AWS to deliver elastic compute, intelligent ML services, and enterprise-grade infrastructure.</p>
+          <div class="platform-tags">
+            <span class="tag">EC2</span>
+            <span class="tag">Lambda</span>
+            <span class="tag">S3</span>
+            <span class="tag">RDS</span>
+            <span class="tag">CloudFront</span>
+          </div>
+        </div>
+
+        <!-- Firebase -->
+        <div class="platform-card firebase" data-aos="fade-up" data-aos-delay="100">
+          <div class="platform-logo"><i class="fas fa-fire"></i></div>
+          <h3>Firebase</h3>
+          <p>Google's real-time backend-as-a-service platform. We use Firebase for rapid app development, real-time databases, and seamless authentication.</p>
+          <div class="platform-tags">
+            <span class="tag">Firestore</span>
+            <span class="tag">Auth</span>
+            <span class="tag">Hosting</span>
+            <span class="tag">Functions</span>
+            <span class="tag">Storage</span>
+          </div>
+        </div>
+
+        <!-- Google Cloud -->
+        <div class="platform-card gcp" data-aos="fade-up" data-aos-delay="200">
+          <div class="platform-logo"><i class="fab fa-google"></i></div>
+          <h3>Google Cloud Platform</h3>
+          <p>Advanced AI/ML services, BigQuery analytics, and global networking infrastructure. GCP powers our most data-intensive applications.</p>
+          <div class="platform-tags">
+            <span class="tag">BigQuery</span>
+            <span class="tag">Vertex AI</span>
+            <span class="tag">Cloud Run</span>
+            <span class="tag">Pub/Sub</span>
+            <span class="tag">GKE</span>
+          </div>
+        </div>
+
+        <!-- Docker -->
+        <div class="platform-card docker" data-aos="fade-up" data-aos-delay="300">
+          <div class="platform-logo"><i class="fab fa-docker"></i></div>
+          <h3>Docker</h3>
+          <p>Containerisation for consistent, portable deployments across development, staging, and production environments — eliminating "works on my machine" issues.</p>
+          <div class="platform-tags">
+            <span class="tag">Containers</span>
+            <span class="tag">Compose</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">Swarm</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Platform Detail: AWS ───────────────────────── -->
+  <section class="bg-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label"><i class="fas fa-server"></i> Deep Dive</span>
+        <h2>How We Use Each Platform</h2>
+        <p>Each platform serves a distinct purpose in our technology stack, chosen deliberately for performance, scalability, and cost efficiency.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);" data-aos="fade-up">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
+            <div style="width:48px;height:48px;background:#fff3e0;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#ff9900;font-size:1.4rem;">
+              <i class="fab fa-aws"></i>
+            </div>
+            <div>
+              <h3 style="font-size:1.05rem;margin-bottom:.1rem;">AWS Use Cases</h3>
+              <p style="font-size:.8rem;margin:0;">Enterprise &amp; high-traffic applications</p>
+            </div>
+          </div>
+          <ul style="display:flex;flex-direction:column;gap:.6rem;">
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              Auto-scaling web applications handling millions of requests
+            </li>
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              Serverless functions with AWS Lambda for event-driven architectures
+            </li>
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              Managed relational databases with RDS and Aurora
+            </li>
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              Global CDN delivery with CloudFront for sub-100ms response times
+            </li>
+          </ul>
+        </div>
+
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);" data-aos="fade-up" data-aos-delay="100">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
+            <div style="width:48px;height:48px;background:#fff8e1;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fb8c00;font-size:1.4rem;">
+              <i class="fas fa-fire"></i>
+            </div>
+            <div>
+              <h3 style="font-size:1.05rem;margin-bottom:.1rem;">Firebase Use Cases</h3>
+              <p style="font-size:.8rem;margin:0;">Rapid development &amp; real-time apps</p>
+            </div>
+          </div>
+          <ul style="display:flex;flex-direction:column;gap:.6rem;">
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              Real-time collaborative apps with Firestore live subscriptions
+            </li>
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              Social login and secure auth with Firebase Authentication
+            </li>
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              Static site hosting with global CDN via Firebase Hosting
+            </li>
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              Backend logic with Cloud Functions triggered by database events
+            </li>
+          </ul>
+        </div>
+
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);" data-aos="fade-up" data-aos-delay="150">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
+            <div style="width:48px;height:48px;background:#e8f0fe;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#4285f4;font-size:1.4rem;">
+              <i class="fab fa-google"></i>
+            </div>
+            <div>
+              <h3 style="font-size:1.05rem;margin-bottom:.1rem;">Google Cloud Use Cases</h3>
+              <p style="font-size:.8rem;margin:0;">AI/ML &amp; data analytics at scale</p>
+            </div>
+          </div>
+          <ul style="display:flex;flex-direction:column;gap:.6rem;">
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              AI/ML model training and deployment with Vertex AI
+            </li>
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              Petabyte-scale data warehousing and analytics with BigQuery
+            </li>
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              Containerised microservices on Google Kubernetes Engine
+            </li>
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              Real-time data pipelines with Cloud Pub/Sub and Dataflow
+            </li>
+          </ul>
+        </div>
+
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);" data-aos="fade-up" data-aos-delay="200">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
+            <div style="width:48px;height:48px;background:#e3f2fd;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#2496ed;font-size:1.4rem;">
+              <i class="fab fa-docker"></i>
+            </div>
+            <div>
+              <h3 style="font-size:1.05rem;margin-bottom:.1rem;">Docker Use Cases</h3>
+              <p style="font-size:.8rem;margin:0;">Consistent deployments everywhere</p>
+            </div>
+          </div>
+          <ul style="display:flex;flex-direction:column;gap:.6rem;">
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              Containerised microservices architecture for maximum scalability
+            </li>
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              CI/CD pipelines with automated build, test, and push workflows
+            </li>
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              Multi-service orchestration with Docker Compose for local dev
+            </li>
+            <li style="display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);">
+              <i class="fas fa-check-circle" style="color:#16a34a;margin-top:.15rem;flex-shrink:0;"></i>
+              Production orchestration using Kubernetes for fault tolerance
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────── -->
+  <div class="cta-section">
+    <div class="container">
+      <h2>Not Sure Which Platform is Right for You?</h2>
+      <p>Our solutions architects will help you choose the ideal infrastructure for your project's scale, budget, and requirements.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-white btn-lg">
+          <i class="fas fa-phone"></i> Book a Consultation
+        </a>
+        <a href="technology.html" class="btn btn-white-outline btn-lg">
+          <i class="fas fa-microchip"></i> View Tech Stack
+        </a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+          ASTRA SOFTWARE
+        </a>
+        <p>Building intelligent, scalable, and beautiful digital products for businesses across India and beyond.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="platforms.html">Platforms</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html">AI Chatbot Development</a></li>
+          <li><a href="services.html">Web Development</a></li>
+          <li><a href="services.html">App Development</a></li>
+          <li><a href="services.html">UI/UX Design</a></li>
+          <li><a href="services.html">Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:astraasoftwares@gmail.com">astraasoftwares@gmail.com</a></li>
+          <li><a href="#">132/15, Periyar Colony</a></li>
+          <li><a href="#">Tiruppur, Tamil Nadu 641652</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 ASTRA SOFTWARE. All rights reserved.</span>
+      <span>132/15, Post, Periyar Colony, Anupparpalayam Pudur, Tiruppur, Tamil Nadu – 641652</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>if (window.emailjs) { emailjs.init({ publicKey: "YOUR_EMAILJS_PUBLIC_KEY" }); }</script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
