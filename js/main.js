@@ -12,7 +12,6 @@ window.addEventListener("load", () => {
     setTimeout(() => overlay.classList.add("hidden"), 400);
   }
   initAOS();
-  trackPageVisit();
 });
 
 /* =====================================================
@@ -120,6 +119,17 @@ function hideToast(toast) {
 
 window.showToast = showToast; // expose globally
 
+function withTimeout(promise, ms, label) {
+  let timer;
+  const timeout = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      reject(new Error(`${label} timed out after ${ms}ms`));
+    }, ms);
+  });
+
+  return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
+}
+
 /* =====================================================
    CONTACT FORM
    ===================================================== */
@@ -132,7 +142,13 @@ async function handleContactSubmit(e) {
   e.preventDefault();
   const form   = e.target;
   const btn    = form.querySelector('[type="submit"]');
-  const fields = { name: form.name, email: form.email, subject: form.subject, message: form.message };
+  const fields = {
+    name: form.name,
+    email: form.email,
+    subject: form.subject,
+    service: form.service,
+    message: form.message
+  };
 
   clearErrors(form);
 
@@ -163,56 +179,53 @@ async function handleContactSubmit(e) {
   btn.innerHTML = '<span class="spinner"></span> Sending…';
 
   const formData = {
-    name:    fields.name.value.trim(),
-    email:   fields.email.value.trim(),
+    name: fields.name.value.trim(),
+    email: fields.email.value.trim(),
     subject: fields.subject ? fields.subject.value.trim() : "",
-    message: fields.message.value.trim()
+    service: fields.service ? fields.service.value.trim() : "",
+    message: fields.message.value.trim(),
+    page: window.location.pathname
   };
 
-  // ── Firebase ──────────────────────────────────────
-  let firebaseSaved = false;
+  const isLocalHost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+  const apiBase = window.ASTRA_API_BASE
+    || (isLocalHost && window.location.port !== "5000" ? "http://localhost:5000" : "");
+
   try {
-    const { saveContactMessage, logAction } = await import("./firebase.js");
-    firebaseSaved = await saveContactMessage(formData);
-    await logAction("form_submit", { formId: "contact", email: formData.email });
-  } catch {
-    // Firebase not configured — proceed without crashing
-  }
+    const response = await withTimeout(
+      fetch(`${apiBase}/api/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      }),
+      12000,
+      "Contact API"
+    );
 
-  // ── EmailJS ───────────────────────────────────────
-  let emailSent = false;
-  if (window.emailjs) {
+    let data = null;
     try {
-      await emailjs.send(
-        "YOUR_EMAILJS_SERVICE_ID",
-        "YOUR_EMAILJS_TEMPLATE_ID",
-        {
-          from_name:    formData.name,
-          from_email:   formData.email,
-          subject:      formData.subject || "Contact Form Submission",
-          message:      formData.message,
-          to_email:     "astraasoftwares@gmail.com"
-        }
-      );
-      emailSent = true;
-    } catch (err) {
-      console.warn("[ASTRA] EmailJS error:", err);
+      data = await response.json();
+    } catch {
+      // Non-JSON response
     }
-  }
 
-  // ── Re-enable button ──────────────────────────────
-  btn.disabled = false;
-  btn.innerHTML = originalHTML;
+    if (!response.ok || !data || !data.success) {
+      const message = data && data.error
+        ? data.error
+        : `Request failed (${response.status})`;
+      throw new Error(message);
+    }
 
-  // ── Feedback ──────────────────────────────────────
-  if (firebaseSaved || emailSent) {
     showToast("Message sent! We'll get back to you shortly.", "success");
     form.reset();
-  } else {
-    // Still show success UX (message was received client-side);
-    // backend not fully configured yet.
-    showToast("Message received! We'll be in touch soon.", "success");
-    form.reset();
+  } catch (err) {
+    console.warn("[ASTRA] Contact form error:", err);
+    showToast("Sorry, we couldn't send your message. Please try again later.", "error");
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = originalHTML;
   }
 }
 
@@ -231,18 +244,6 @@ function showFieldError(input, message) {
 function clearErrors(form) {
   form.querySelectorAll(".form-control").forEach(el => el.classList.remove("error", "success"));
   form.querySelectorAll(".field-error").forEach(el => el.classList.remove("visible"));
-}
-
-/* =====================================================
-   PAGE-VISIT LOGGING (via Firebase)
-   ===================================================== */
-async function trackPageVisit() {
-  try {
-    const { logAction } = await import("./firebase.js");
-    logAction("page_visit");
-  } catch {
-    // Firebase not configured
-  }
 }
 
 /* =====================================================
